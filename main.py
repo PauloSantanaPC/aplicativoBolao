@@ -858,7 +858,7 @@ def main():
                 
                 if task == 'Copa do Mundo 2022':
                     st.title('Bolão da Copa do Mundo 2022')
-                    task1 = st.sidebar.selectbox(label = 'Selecionar o campeonato', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
+                    task1 = st.sidebar.selectbox(label = 'Opções', options = ['Apostas iniciais','Apostas fase de grupos','Apostas nas fases eliminatórias','Resumo das apostas','Links externos'], index = 0)
                     
                     if task1 == 'Apostas iniciais':                        
                         inicioCopa = horarioJogo(2022,11,21,23,0)
