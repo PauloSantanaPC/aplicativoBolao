@@ -1080,7 +1080,7 @@ def main():
                         #figuraInicial = resumoApostas()
                         #st.pyplot(figuraInicial)
                         
-                        def criandoTabs():
+                        #def criandoTabs():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
