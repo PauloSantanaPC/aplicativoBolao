@@ -1089,10 +1089,11 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
-                                    #st.subheader(apostasGrupos)
-                                    #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
-                                    #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
                                     
+                                    st.subheader(f'Classificação do Bolão')
+                                    
+                                    st.subheader(f'Apostas iniciais')
+
                                     colunas = []
                                     opcoes = []
                                     apostasCampeao = []
