@@ -1166,10 +1166,10 @@ def main():
                                     #st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
                                     
                                     dataHoraMinutoAtual = datetime.strptime(datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%d/%m/%y %H:%M'), '%d/%m/%y %H:%M')
-                                    st.header(f'Resumo das apostas {dataHoraMinutoAtual} - {np.array(usuariosLista)[usuario][0]}')                                    
+                                    st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
                                     st.subheader(f'Apostas jogos primeira fase:')
                                     for contadorGrupo in range(8):
-                                        st.write(f'Grupo {grupos()[:,4][contadorGrupo]}')
+                                        st.write(f'Grupo {grupos()[:,4][contadorGrupo]} - {np.array(usuariosLista)[usuario][0]} - {dataHoraMinutoAtual}')
                                         for contadorJogo in range(6):
                                             # rodada e jogo
                                             if contadorJogo == 0 or contadorJogo == 1:
