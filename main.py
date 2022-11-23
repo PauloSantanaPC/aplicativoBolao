@@ -1077,25 +1077,90 @@ def main():
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
-                        #figuraInicial = resumoApostas()
-                        #st.pyplot(figuraInicial)
-                        
-                        #def criandoTabs():
                         tabs = []
                         for tab in range(len(usuariosLista)):
                             tabs.append(np.array(usuariosLista)[tab][0])
                         tabs[0] = 'Classificação do Bolão'
                         tabs = st.tabs(tabs)
+                        
+                        opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                         for usuario in range(len(usuariosLista)):
                             if usuario == 0:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas do Bolão')
                                     st.image("https://static.streamlit.io/examples/owl.jpg", width = 200)
+                                    #st.subheader(apostasGrupos)
                                     #df = pd.DataFrame(np.random.randn(10, 5), columns=('col %d' % i for i in range(5)))
                                     #df = pd.DataFrame(np.array([[listaSelecoes()[int(np.array(usuariosLista)[usuario][9])], listaSelecoes()[int(np.array(usuariosLista)[usuario][10])], listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]]]),
-                                    #df = pd.DataFrame(np.array([[1,2,3],[4,5,6]]),
-                                                      #columns = ('Campeão','Vice-campeão','Terceiro colocado'))
-                                    #st.table(df)
+                                    
+                                    colunas = []
+                                    opcoes = []
+                                    apostasCampeao = []
+                                    apostasViceCampeao = []
+                                    apostasTerceiroColocado = []
+                                    apostasGrupos = []
+                                    for contadorUsuario in range(1, len(usuariosLista), 1):
+                                        
+                                        # Apostas Iniciais bolão, campeão, vice e terceiro
+                                        colunas.append(np.array(usuariosLista)[contadorUsuario][0])
+                                        if usuariosLista[contadorUsuario][8] != '':
+                                            opcoes.append(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
+                                        else:
+                                            opcoes.append(f'Não acha nada.')
+
+                                        if np.array(usuariosLista)[contadorUsuario][9] != '':
+                                            apostasCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][9])])
+                                        else:
+                                            apostasCampeao.append('Não apostou no campeão')
+
+                                        if np.array(usuariosLista)[contadorUsuario][10] != '':
+                                            apostasViceCampeao.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][10])])
+                                        else:
+                                            apostasViceCampeao.append('Não apostou no vice-campeão')
+
+                                        if np.array(usuariosLista)[contadorUsuario][11] != '':
+                                            apostasTerceiroColocado.append(listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][11])])
+                                        else:
+                                            apostasTerceiroColocado.append('Não apostou no terceiro colocado')
+                                        
+                                        # apostas Iniciais Grupos
+                                        listaApostasGruposUsuario = []
+                                        for apostaGrupo in range(12, 28, 2):
+                                            #listaApostasGruposUsuario = []
+                                            if np.array(usuariosLista)[contadorUsuario][apostaGrupo] != '':
+                                                #apostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
+                                                listaApostasGruposUsuario.append([listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])]])
+                                                #apostasGrupos.append(listaApostasGruposUsuario)
+                                            else:
+                                                #apostasGrupos.append(['Não apostou','Não apostou'])
+                                                listaApostasGruposUsuario.append(['Não apostou','Não apostou'])
+                                                #apostasGrupos.append(listaApostasGruposUsuario)
+                                        apostasGrupos.append(listaApostasGruposUsuario)
+
+                                    colunas = tuple(colunas)
+                                    df = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,
+                                                                #np.array(apostasGrupos)[:,grupo][:,colocacao]
+                                                                np.array(apostasGrupos)[:,0][:,0],np.array(apostasGrupos)[:,0][:,1], # grupo A
+                                                                np.array(apostasGrupos)[:,1][:,0],np.array(apostasGrupos)[:,1][:,1], # grupo B
+                                                                np.array(apostasGrupos)[:,2][:,0],np.array(apostasGrupos)[:,2][:,1], # grupo C
+                                                                np.array(apostasGrupos)[:,3][:,0],np.array(apostasGrupos)[:,3][:,1], # grupo D
+                                                                np.array(apostasGrupos)[:,4][:,0],np.array(apostasGrupos)[:,4][:,1], # grupo E
+                                                                np.array(apostasGrupos)[:,5][:,0],np.array(apostasGrupos)[:,5][:,1], # grupo F
+                                                                np.array(apostasGrupos)[:,6][:,0],np.array(apostasGrupos)[:,6][:,1], # grupo G
+                                                                np.array(apostasGrupos)[:,7][:,0],np.array(apostasGrupos)[:,7][:,1]]), # grupo H
+                                                      columns = colunas)
+                                    
+                                    df.index = ['Bolão','Campeão','Vice-campeão','Terceiro colocado',
+                                                '1° Grupo A','2° Grupo A',
+                                                '1° Grupo B','2° Grupo B',
+                                                '1° Grupo C','2° Grupo C',
+                                                '1° Grupo D','2° Grupo D',
+                                                '1° Grupo E','2° Grupo E',
+                                                '1° Grupo F','2° Grupo F',
+                                                '1° Grupo G','2° Grupo G',
+                                                '1° Grupo H','2° Grupo H']
+                                    st.table(df)
+                                    
                             else:
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')
