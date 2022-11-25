@@ -1409,6 +1409,7 @@ def main():
 
                     elif task1 == 'Apostas fase de grupos':
                         st.title('Fase de Grupos')
+                        classificacao = classificacaoInicial()
 
                         for nomeGrupo in range(len(grupos()[:,0])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
@@ -1451,11 +1452,11 @@ def main():
                                                 np.save(str(username),usuario)
                                             if usuario[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Aposta registrada!')
-                                                #st.write(f'{grupos()[nomeGrupo][time1]} {aposta_selecao_1} X {aposta_selecao_2} {grupos()[nomeGrupo][time2]}')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuario[28+2*6*nomeGrupo+2*nomeJogo]} X {usuario[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                         elif nomeJogo == 1:
                                             #print('')
@@ -1476,6 +1477,7 @@ def main():
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                     elif nomeRodada == 2:
                                         # Time i1 = 0
@@ -1508,6 +1510,7 @@ def main():
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                         elif nomeJogo == 3:
                                             #print('')
@@ -1528,6 +1531,7 @@ def main():
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                     elif nomeRodada == 3:
                                         # Time i1 = 0
@@ -1559,6 +1563,7 @@ def main():
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time1]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time2]}')
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
 
                                         elif nomeJogo == 5:
                                             #print('')
@@ -1579,7 +1584,28 @@ def main():
                                             if usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo] != '':
                                                 st.subheader('Fim de jogo!')
                                                 st.write(f'{grupos()[nomeGrupo][time3]} {usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]} X {usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]} {grupos()[nomeGrupo][time4]}')
-
+                                                classificacao = classificacaoFaseGrupos(classificacao,nomeGrupo,nomeJogo,int(usuarioMestre[28+2*6*nomeGrupo+2*nomeJogo]),int(usuarioMestre[29+2*6*nomeGrupo+2*nomeJogo]))
+                                                
+                        rotuloColuna = ['P',  # pontuação
+                                        'J',  # jogos
+                                        'V',  # vitórias
+                                        'E',  # empates
+                                        'D',  # derrotas
+                                        'GP', # gols pró
+                                        'GC', # gols contra
+                                        'SG'] # saldo de gols
+                        for contadorClassificacao in range(len(classificacao)):
+                            classificacao[contadorClassificacao].pop(-1)
+                            df = pd.DataFrame(np.array([[classificacao[contadorClassificacao][0][1],classificacao[contadorClassificacao][0][2],classificacao[contadorClassificacao][0][3],classificacao[contadorClassificacao][0][4],classificacao[contadorClassificacao][0][5],classificacao[contadorClassificacao][0][6],classificacao[contadorClassificacao][0][7],classificacao[contadorClassificacao][0][8]],
+                                                        [classificacao[contadorClassificacao][1][1],classificacao[contadorClassificacao][1][2],classificacao[contadorClassificacao][1][3],classificacao[contadorClassificacao][1][4],classificacao[contadorClassificacao][1][5],classificacao[contadorClassificacao][1][6],classificacao[contadorClassificacao][1][7],classificacao[contadorClassificacao][1][8]],
+                                                        [classificacao[contadorClassificacao][2][1],classificacao[contadorClassificacao][2][2],classificacao[contadorClassificacao][2][3],classificacao[contadorClassificacao][2][4],classificacao[contadorClassificacao][2][5],classificacao[contadorClassificacao][2][6],classificacao[contadorClassificacao][2][7],classificacao[contadorClassificacao][2][8]],
+                                                        [classificacao[contadorClassificacao][3][1],classificacao[contadorClassificacao][3][2],classificacao[contadorClassificacao][3][3],classificacao[contadorClassificacao][3][4],classificacao[contadorClassificacao][3][5],classificacao[contadorClassificacao][3][6],classificacao[contadorClassificacao][3][7],classificacao[contadorClassificacao][3][8]]
+                                                        ]),
+                                        columns = tuple(rotuloColuna)
+                            )
+                            df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
+                            st.table(df)
+                            
                     elif task1 == 'Resumo das apostas':
                         st.header('Resumo das apostas')
                         
