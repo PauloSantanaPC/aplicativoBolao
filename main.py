@@ -277,6 +277,7 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         if nomeJogo == 0:
             # Catar x Equador
             #inicioJogo = horarioJogo(2022,11,20,13,0)
+            #inicioJogo = horarioJogo(2022,11,23,23,59)
             inicioJogo = horarioJogo(2022,11,23,23,59)
         elif nomeJogo == 1:
             # Senegal X Holanda
@@ -322,6 +323,7 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo C
         if nomeJogo == 0:
             # Argentina X Arábia Saudita
+            #inicioJogo = horarioJogo(2022,11,22,7,0)
             inicioJogo = horarioJogo(2022,11,22,7,0)
         elif nomeJogo == 1:
             # México X Polônia
@@ -1123,16 +1125,14 @@ def main():
                 usuario = usuariosLista[indiceUsuario]
                 
                 for nomeGrupo in range(len(grupos()[:,0])):
-
                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                    
                     # Datas e horários dos jogos
-
                     for nomeJogo in range(6):
                         with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
 
                             # rodada e jogo
-                            #nomeRodada = int(input('Qual rodada você quer apostar? '))
                             if nomeJogo == 0 or nomeJogo == 1:
                                 nomeRodada = 1
                             elif nomeJogo == 2 or nomeJogo == 3:
@@ -1284,7 +1284,6 @@ def main():
                                 'GP', # gols pró
                                 'GC', # gols contra
                                 'SG'] # saldo de gols
-
                 for contadorClassificacao in range(len(classificacao)):
                     classificacao[contadorClassificacao].pop(-1)
                     df = pd.DataFrame(np.array([[classificacao[contadorClassificacao][0][1],classificacao[contadorClassificacao][0][2],classificacao[contadorClassificacao][0][3],classificacao[contadorClassificacao][0][4],classificacao[contadorClassificacao][0][5],classificacao[contadorClassificacao][0][6],classificacao[contadorClassificacao][0][7],classificacao[contadorClassificacao][0][8]],
@@ -1297,29 +1296,10 @@ def main():
                     df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
                     st.table(df)
                 
-            elif task == 'Profiles':
-                st.subheader('User Profiles')
-                #user_result = view_all_users() # lista com todos os usuários
-                #clean_db = pd.DataFrame(user_result, columns = ['Username','Password'])
-                #clean_db = pd.DataFrame(user_result)
-                #st.dataframe(clean_db)
-                #st.subheader(user_result[0])
-                #st.subheader(user_result[0][0])
-                #st.subheader(user_result[0][1])
-                #st.subheader(user_result[1])
-                #st.subheader(user_result[2])
-                #st.subheader(user_result[3])
-                #st.subheader(user_result[4])
-                #dados = login_user(user_result[0][0],user_result[0][1])
-                #st.subheader(np.array(view_all_users())[:,0])
-
-                todos_usuarios = todos_os_usuarios() # lista com todos os usuários
-                clean_db = pd.DataFrame(todos_usuarios)
+            elif task == 'Usuários':
+                st.subheader('Usuários')
+                clean_db = pd.DataFrame(todos_os_usuarios())
                 st.dataframe(clean_db)
-                #st.subheader(np.array(todos_os_usuarios())[0][0])
-                #st.subheader(np.array(todos_os_usuarios())[:,0][0])
-                #st.subheader(np.where(np.array(todos_os_usuarios())[:,0] == 'usuarioTeste1')[0][0])
-                #st.subheader(todos_os_usuarios())
                 st.subheader(usuariosLista)
         else:
             st.subheader('Você não tem acesso')
@@ -1431,21 +1411,14 @@ def main():
                         st.title('Fase de Grupos')
 
                         for nomeGrupo in range(len(grupos()[:,0])):
-
                             st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                            
                             # Datas e horários dos jogos
-
                             for nomeJogo in range(6):
                                 with st.form(key = 'include_aposta_jogo_'+str(nomeJogo+1)+'do_grupo_'+str(grupos()[nomeGrupo][-1])):
-
-                                    #aposta_jogo_primeira_fase = st.selectbox('Escolha o jogo que deseja apostar', options = ['Jogo 1: ','Jogo 2: ','Jogo 3: ','Jogo 4: ','Jogo 5: ','Jogo 6: '], index = 0)
-                                    #if aposta_jogo_primeira_fase == 'Jogo 2: ':
-                                    #    aposta_selecao_1 = st.number_input(label = 'Seleção 4', min_value = 0, max_value = 20, step = 1, format = '%d')                                
-                                    #st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - RELÓGIO TIC TAC')
                                     st.subheader(f'Grupo {grupos()[nomeGrupo][-1]} - Jogo {nomeJogo+1} - {dataHorarioJogoGrupo(nomeGrupo,nomeJogo)}')
                                     
                                     # rodada e jogo
-                                    #nomeRodada = int(input('Qual rodada você quer apostar? '))
                                     if nomeJogo == 0 or nomeJogo == 1:
                                         nomeRodada = 1
                                     elif nomeJogo == 2 or nomeJogo == 3:
