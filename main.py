@@ -1204,8 +1204,8 @@ def main():
                                     #print('')
                                     #print('Jogo 3')
                                     #print('%s X %s'%(grupos()[nomeGrupo][time1], grupos()[nomeGrupo][time2]))
-                                    aposta_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    aposta_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
                                     botao_jogo_3 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     if botao_jogo_3 and not inicioJogo:
@@ -1221,8 +1221,8 @@ def main():
                                     #print('')
                                     #print('Jogo 4')
                                     #print('%s X %s'%(grupos()[nomeGrupo][time3], grupos()[nomeGrupo][time4]))
-                                    aposta_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    aposta_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
                                     botao_jogo_4 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     if botao_jogo_4 and not inicioJogo:
@@ -1249,8 +1249,8 @@ def main():
                                     #print('')
                                     #print('Jogo 5')
                                     #print('%s X %s'%(grupos()[nomeGrupo][time1], grupos()[nomeGrupo][time2]))
-                                    aposta_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    aposta_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_1 = st.number_input(label = grupos()[nomeGrupo][time1], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_2 = st.number_input(label = grupos()[nomeGrupo][time2], min_value = 0, max_value = 10, step = 1, format = '%d')
                                     botao_jogo_5 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     if botao_jogo_5 and not inicioJogo:
@@ -1266,8 +1266,8 @@ def main():
                                     #print('')
                                     #print('Jogo 6')
                                     #print('%s X %s'%(grupos()[nomeGrupo][time3], grupos()[nomeGrupo][time4]))
-                                    aposta_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
-                                    aposta_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_3 = st.number_input(label = grupos()[nomeGrupo][time3], min_value = 0, max_value = 10, step = 1, format = '%d')
+                                    placar_selecao_4 = st.number_input(label = grupos()[nomeGrupo][time4], min_value = 0, max_value = 10, step = 1, format = '%d')
                                     botao_jogo_6 = st.form_submit_button(label = f'Postar placar do jogo {nomeJogo+1}')
                                     inicioJogo = horarioJogoGrupo(nomeGrupo,nomeJogo)
                                     if botao_jogo_6 and not inicioJogo:
