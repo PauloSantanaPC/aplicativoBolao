@@ -276,14 +276,14 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            #inicioJogo = horarioJogo(2022,11,20,13,0)
+            inicioJogo = horarioJogo(2022,11,20,13,0)
             #inicioJogo = horarioJogo(2022,11,23,23,59)
-            inicioJogo = horarioJogo(2022,11,26,23,59)
+            #inicioJogo = horarioJogo(2022,11,26,23,59)
         elif nomeJogo == 1:
             # Senegal X Holanda
-            #inicioJogo = horarioJogo(2022,11,21,13,0)
+            inicioJogo = horarioJogo(2022,11,21,13,0)
             #inicioJogo = horarioJogo(2022,11,23,23,59)
-            inicioJogo = horarioJogo(2022,11,26,23,59)
+            #inicioJogo = horarioJogo(2022,11,26,23,59)
         elif nomeJogo == 2:
             # Catar X Senegal
             inicioJogo = horarioJogo(2022,11,25,10,0)
@@ -301,14 +301,14 @@ def horarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo B
         if nomeJogo == 0:
             # Inglaterra X Irã
-            #inicioJogo = horarioJogo(2022,11,21,10,0)
+            inicioJogo = horarioJogo(2022,11,21,10,0)
             #inicioJogo = horarioJogo(2022,11,23,23,59)
-            inicioJogo = horarioJogo(2022,11,26,23,59)
+            #inicioJogo = horarioJogo(2022,11,26,23,59)
         elif nomeJogo == 1:
             # Estados Unidos X País de Gales
-            #inicioJogo = horarioJogo(2022,11,21,16,0)
+            inicioJogo = horarioJogo(2022,11,21,16,0)
             #inicioJogo = horarioJogo(2022,11,26,23,59)
-            inicioJogo = horarioJogo(2022,11,26,23,59)
+            #inicioJogo = horarioJogo(2022,11,26,23,59)
         elif nomeJogo == 2:
             # Inglaterra X Estados Unidos
             inicioJogo = horarioJogo(2022,11,25,16,0)
@@ -460,8 +460,8 @@ def dataHorarioJogoGrupo(nomeGrupo,nomeJogo):
         # Grupo A
         if nomeJogo == 0:
             # Catar x Equador
-            #inicioJogo = datetime(2022,11,20,13,0)
-            inicioJogo = datetime(2022,11,20,23,0)
+            inicioJogo = datetime(2022,11,20,13,0)
+            #inicioJogo = datetime(2022,11,20,23,0)
         elif nomeJogo == 1:
             # Senegal X Holanda
             inicioJogo = datetime(2022,11,21,13,0)
