@@ -1295,8 +1295,6 @@ def main():
                                 columns = tuple(rotuloColuna)
                     )
                     df.index = [classificacao[contadorClassificacao][0][0],classificacao[contadorClassificacao][1][0],classificacao[contadorClassificacao][2][0],classificacao[contadorClassificacao][3][0]]
-                    #print('')
-                    #print(df)
                     st.table(df)
                 
             elif task == 'Profiles':
@@ -1752,8 +1750,8 @@ def main():
                                                 # rodada 2: Time i2 x Time i4
                                                 time1 = 0
                                                 time2 = 2
-                                                time3 = 1
-                                                time4 = 3
+                                                time3 = 3
+                                                time4 = 1
                                                 if contadorJogo == 2:
                                                     timeMandante  = time1
                                                     timeVisitante = time2
