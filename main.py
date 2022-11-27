@@ -1141,7 +1141,57 @@ def main():
                 
             elif task == 'Testes':
                 st.subheader('Testes')
-                
+
+                opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
+                opcoes = [0,1,2,3,4]
+                for contadorUsuario in range(1, len(usuariosLista), 1):
+                    st.subheader(usuariosLista[contadorUsuario][0])
+                    with st.form(key = 'includebolao'+str(contadorUsuario)):
+                        apostaBolao = st.selectbox('Selecione a posição que ficará no bolão', options = opcoesBolao, index = 3)
+                        botaoBolao = st.form_submit_button(label = 'Apostar')
+                    if botaoBolao:# and inicioCopa:
+                        #usuario[8] = opcoes[opcoesBolao.index(apostaBolao)]
+                        usuariosLista[contadorUsuario][8] = opcoes[opcoesBolao.index(apostaBolao)]
+                        np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                    if usuariosLista[contadorUsuario][8] != '':
+                        st.subheader('Aposta registrada!')
+                        st.write(f'Você vai ser o {opcoesBolao[int(usuariosLista[contadorUsuario][8])]} !')
+
+                        #-----------------------------------------------------------------------------#
+
+                        st.title('Apostas iniciais - 13:00 20/11/2022')
+                        with st.form(key = 'include_campeao'+str(contadorUsuario)):
+                            apostaCampeao = st.selectbox('Quem será o campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            apostaViceCampeao = st.selectbox('Quem será o vice campeão da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            apostaTerceiroColocado = st.selectbox('Quem será o terceiro colocado da Copa do Mundo 2022?', options = listaSelecoes(), index = 0)
+                            botaoApostaCampeao = st.form_submit_button(label = 'Apostar')
+                        if botaoApostaCampeao:# and inicioCopa:
+                            apostaPodio(usuariosLista[contadorUsuario],apostaCampeao,apostaViceCampeao,apostaTerceiroColocado)
+                            np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                        if usuariosLista[contadorUsuario][9] != '':
+                            st.subheader('Apostas registradas!')
+                            st.write(f'Aposta campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][9])]}')
+                            st.write(f'Aposta vice campeão: {listaSelecoes()[int(usuariosLista[contadorUsuario][10])]}')
+                            st.write(f'Aposta terceiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][11])]}')
+
+                        #-----------------------------------------------------------------------------#
+
+                        for nomeGrupo in range(len(grupos()[:,0])):
+                            st.subheader(f'Grupo {grupos()[nomeGrupo][-1]}')
+                            with st.form(key = 'include_aposta_grupo_'+str(grupos()[nomeGrupo][-1])+str(contadorUsuario)):
+                                apostaPrimeiro = st.selectbox('Quem será o primeiro colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                                apostaSegundo  = st.selectbox('Quem será o segundo colocado?', options = np.delete(grupos()[nomeGrupo],-1), index = 0)
+                                botaoApostaGrupos = st.form_submit_button(label = 'Apostar no grupo '+str(grupos()[nomeGrupo][-1]))
+                            if botaoApostaGrupos:# and inicioCopa:
+                                apostaGrupos(usuariosLista[contadorUsuario],nomeGrupo,apostaPrimeiro,apostaSegundo)
+                                np.save(str(usuariosLista[contadorUsuario][0]),usuariosLista[contadorUsuario])
+                            if usuariosLista[contadorUsuario][2*nomeGrupo+12] != '':
+                                st.subheader('Apostas registradas!')
+                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+12])]}')
+                                st.write(f'Aposta primeiro colocado: {listaSelecoes()[int(usuariosLista[contadorUsuario][2*nomeGrupo+13])]}')
+
+                        #-----------------------------------------------------------------------------#
+                            
             elif task == 'Fase de grupos':
                 st.title('Fase de Grupos')
                 classificacao = classificacaoInicial()
