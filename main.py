@@ -2008,7 +2008,6 @@ def main():
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
 
                                     if usuariosLista[usuario][8] != '':
-                                        #opcoesBolao = ['Campeão do mundo','Vice de nada','cara que não sabe de futebol, mas não vai ser o pior do bolão','Pangaré do futebol']
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
                                     if np.array(usuariosLista)[usuario][9] != '':
@@ -2044,11 +2043,8 @@ def main():
                                     pontuacaoApostasGrupos = []
                                     pontuacaoGrupos = 0
                                     for apostaGrupo in range(12, 28, 2):
-                                    #for contador in range(0, len(classificadosGrupos), 2):
                                         if np.array(usuariosLista)[usuario][apostaGrupo] != '':
-                                        #if apostasGrupos[contador] != '':
                                             pontuacaoApostasGrupos.append([listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])],listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])]])
-                                            #pontuacaoApostasGrupos.append([apostasGrupos[contador],apostasGrupos[contador+1]])
                                             if listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] == classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                 pontuacaoApostasGrupos.append([30,30])
                                                 pontuacaoGrupos += 60
