@@ -1987,8 +1987,8 @@ def main():
                                                                     'França','Austrália',
                                                                     'Japão','Espanha',
                                                                     'Marrocos','Croácia',
-                                                                    'Brasil','Coreia do Sul',
-                                                                    'Portugal','Suíça'])
+                                                                    'Brasil','Suíça',
+                                                                    'Portugal','Coreia do Sul'])
                                     
                                     apostadorPontuacaoApostasGrupos = []
                                     apostadorPontuacaoGrupos = []
