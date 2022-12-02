@@ -2013,12 +2013,12 @@ def main():
                                                 elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                     pontuacaoApostasGrupos.append([0,30])
                                                     pontuacaoGrupos += 30
-                                                elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
-                                                    pontuacaoApostasGrupos.append([0,0])
-                                                    pontuacaoGrupos += 0
                                                 elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                                     pontuacaoApostasGrupos.append([0,21])
                                                     pontuacaoGrupos += 21
+                                                elif listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[contadorUsuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                    pontuacaoApostasGrupos.append([0,0])
+                                                    pontuacaoGrupos += 0
                                             else:
                                                 #pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                                 pontuacaoApostasGrupos.append([0,0])
@@ -2134,12 +2134,12 @@ def main():
                                             elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo+1-12]:
                                                 pontuacaoApostasGrupos.append([0,30])
                                                 pontuacaoGrupos += 30
-                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
-                                                pontuacaoApostasGrupos.append([0,0])
-                                                pontuacaoGrupos += 0
                                             elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo+1-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] == classificadosGrupos[apostaGrupo-12]:
                                                 pontuacaoApostasGrupos.append([0,21])
                                                 pontuacaoGrupos += 21
+                                            elif listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo])] != classificadosGrupos[apostaGrupo-12] and listaSelecoes()[int(np.array(usuariosLista)[usuario][apostaGrupo+1])] != classificadosGrupos[apostaGrupo+1-12]:
+                                                pontuacaoApostasGrupos.append([0,0])
+                                                pontuacaoGrupos += 0
                                         else:
                                             pontuacaoApostasGrupos.append(['Não apostou','Não apostou'])
                                             pontuacaoApostasGrupos.append([0,0])
