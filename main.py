@@ -2246,7 +2246,6 @@ def main():
                                     #-----------------------------
                                     for nomeJogo in range(8):
                                         st.write(f'Jogo {nomeJogo+1} - {np.array(usuariosLista)[usuario][0]}')
-                                        st.write(len(np.array(usuariosLista)[usuario]))
                                         if not horarioOitavas[nomeJogo]:
                                         #if horarioOitavas[nomeJogo]:
                                             if np.array(usuariosLista)[usuario][124+3*nomeJogo] != '':
