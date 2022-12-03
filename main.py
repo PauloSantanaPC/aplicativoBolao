@@ -2207,6 +2207,54 @@ def main():
                                 with tabs[usuario]:
                                     st.header(f'Resumo das apostas - {np.array(usuariosLista)[usuario][0]}')                                    
 
+                                    #-----------------------------
+                                    st.subheader('Oitavas de final')
+                                    #-----------------------------
+                                    opcoesOitavas1 = ['Holanda','Estados Unidos']
+                                    opcoesOitavas2 = ['Argentina','Austrália']
+                                    opcoesOitavas3 = ['Japão','Croácia']
+                                    opcoesOitavas4 = ['Brasil','Coreia do Sul']
+                                    opcoesOitavas5 = ['Inglaterra','Senegal']
+                                    opcoesOitavas6 = ['França','Polônia']
+                                    opcoesOitavas7 = ['Marrocos','Espanha']
+                                    opcoesOitavas8 = ['Portugal','Suíça']
+                                    opcoesOitavas  = [opcoesOitavas1,
+                                                      opcoesOitavas2,
+                                                      opcoesOitavas3,
+                                                      opcoesOitavas4,
+                                                      opcoesOitavas5,
+                                                      opcoesOitavas6,
+                                                      opcoesOitavas7,
+                                                      opcoesOitavas8]
+                                    #-----------------------------
+                                    horarioOitavas1 = horarioJogo(2022,12,3,12,0)
+                                    horarioOitavas2 = horarioJogo(2022,12,3,16,0)
+                                    horarioOitavas3 = horarioJogo(2022,12,5,12,0)
+                                    horarioOitavas4 = horarioJogo(2022,12,5,16,0)
+                                    horarioOitavas5 = horarioJogo(2022,12,4,12,0)
+                                    horarioOitavas6 = horarioJogo(2022,12,4,16,0)
+                                    horarioOitavas7 = horarioJogo(2022,12,6,12,0)
+                                    horarioOitavas8 = horarioJogo(2022,12,6,16,0)
+                                    horarioOitavas  = [horarioOitavas1,
+                                                       horarioOitavas2,
+                                                       horarioOitavas3,
+                                                       horarioOitavas4,
+                                                       horarioOitavas5,
+                                                       horarioOitavas6,
+                                                       horarioOitavas7,
+                                                       horarioOitavas8]
+                                    #-----------------------------
+                                    for nomeJogo in range(8):
+                                        st.write(f'Jogo {nomeJogo+1} - {np.array(usuariosLista)[usuario][0]}')
+                                        #if not horarioOitavas[nomeJogo]:
+                                        if horarioOitavas[nomeJogo]:
+                                            if np.array(usuariosLista)[usuario][124+3*nomeJogo] != '':
+                                                st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(usuariosLista)[usuario][124+3*nomeJogo]}x{np.array(usuariosLista)[usuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
+                                                st.write(f'Classificado: {np.array(usuariosLista)[usuario][126+3*nomeJogo]}')
+                                            else:
+                                                st.write(f'Aposta NÃO realizada.')
+                                    #-------------------------------------------
+                                    
                                     if usuariosLista[usuario][8] != '':
                                         st.subheader(f'Acha que vai ser o {opcoesBolao[int(usuariosLista[usuario][8])]} !')
                                     
