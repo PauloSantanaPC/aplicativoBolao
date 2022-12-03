@@ -2246,8 +2246,9 @@ def main():
                                     #-----------------------------
                                     for nomeJogo in range(8):
                                         st.write(f'Jogo {nomeJogo+1} - {np.array(usuariosLista)[usuario][0]}')
-                                        #if not horarioOitavas[nomeJogo]:
-                                        if horarioOitavas[nomeJogo]:
+                                        st.write(len(np.array(usuariosLista)[usuario]))
+                                        if not horarioOitavas[nomeJogo]:
+                                        #if horarioOitavas[nomeJogo]:
                                             if np.array(usuariosLista)[usuario][124+3*nomeJogo] != '':
                                                 st.write(f'{opcoesOitavas[nomeJogo][0]} {np.array(usuariosLista)[usuario][124+3*nomeJogo]}x{np.array(usuariosLista)[usuario][125+3*nomeJogo]} {opcoesOitavas[nomeJogo][1]}')
                                                 st.write(f'Classificado: {np.array(usuariosLista)[usuario][126+3*nomeJogo]}')
