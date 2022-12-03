@@ -1133,8 +1133,8 @@ def main():
         password = st.text_input('Senha', type = 'password')
 
         if username == 'usuarioMestre' and password == 'appBolao':
-            #task = st.selectbox('Task',['Conexão','Fase de grupos','Usuários'])
-            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
+            #task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Usuários'])
+            task = st.sidebar.selectbox('Task',['Conexão','Testes','Fase de grupos','Fase Eliminatórias','Usuários'])
 
             if task == 'Conexão':
                 st.subheader('Conectado')
@@ -1636,6 +1636,9 @@ def main():
                 df0.index = np.delete(np.array(usuariosLista)[:,0],0)
                 st.table(df0)
                 
+            elif task == 'Fase Eliminatórias':
+                st.title('Fase Eliminatórias')
+
             elif task == 'Usuários':
                 st.subheader('Usuários')
                 
