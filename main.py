@@ -2273,7 +2273,8 @@ def main():
                                         apostaTerceiroColocado = listaSelecoes()[int(np.array(usuariosLista)[usuario][11])]
                                     else:
                                         apostaTerceiroColocado = 'Não apostou no terceiro colocado'
-                                        
+                                    
+                                    st.subheader(f'Apostas principais - {dataHoraMinutoAtual}:')
                                     df1 = pd.DataFrame(np.array([[apostaCampeao,apostaViceCampeao,apostaTerceiroColocado]]),
                                                         columns = ('Campeão','Vice-campeão','Terceiro colocado'))
                                     df1.index = [f'Aposta - {np.array(usuariosLista)[usuario][0]}']
