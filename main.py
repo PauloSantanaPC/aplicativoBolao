@@ -1982,8 +1982,8 @@ def main():
                         horarioOitavas2 = horarioJogo(2022,12,3,16,0)
                         horarioOitavas3 = horarioJogo(2022,12,5,12,0)
                         horarioOitavas4 = horarioJogo(2022,12,5,16,0)
-                        horarioOitavas5 = horarioJogo(2022,12,4,12,0)
-                        horarioOitavas6 = horarioJogo(2022,12,4,16,0)
+                        horarioOitavas5 = horarioJogo(2022,12,4,16,0)
+                        horarioOitavas6 = horarioJogo(2022,12,4,12,0)
                         horarioOitavas7 = horarioJogo(2022,12,6,12,0)
                         horarioOitavas8 = horarioJogo(2022,12,6,16,0)
                         horarioOitavas  = [horarioOitavas1,
