@@ -2154,8 +2154,7 @@ def main():
                                     
                                     #-------------------------------------------
                                     
-
-                                    st.subheader(f'Apostas campeão, final e terceiro colocado')
+                                    st.subheader(f'Apostas campeão, final e terceiro colocado - {np.array(usuariosLista)[usuario][0]}')
                                     colunas = tuple(colunas)
                                     dfa = pd.DataFrame(np.array([opcoes,apostasCampeao,apostasViceCampeao,apostasTerceiroColocado,]),
                                                       columns = colunas)
