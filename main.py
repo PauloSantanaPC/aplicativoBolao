@@ -1181,7 +1181,7 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
     
     if selecaoClassificada == selecaoApostador:
         usuario[2] = int(usuario[2]) + 30
-        pontuacao += 20
+        pontuacao += 30
     else:
         usuario[2] = int(usuario[2]) + 0
         pontuacao += 0
