@@ -1193,7 +1193,7 @@ def resultadoApostadorFaseEliminatoriaSelecao(usuario,pontuacao,selecaoApostador
 #-----------------------------------------------------------------------------#
 
 # DB Management
-dados = sqlite3.connect('dados10.db')
+dados = sqlite3.connect('dados.db')
 d = dados.cursor()
 
 def cria_tabela_usuarios():
