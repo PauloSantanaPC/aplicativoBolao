@@ -1920,13 +1920,14 @@ def main():
         nomeUsuario  = st.sidebar.text_input('Nome de usuário')
         senhaUsuario = st.sidebar.text_input('Senha', type = 'password')
 
-        for contadorUsuario in range(len(listaUsuarios)):
-            if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
-                login = True
-                break
-            elif contadorUsuario == len(listaUsuarios)-1:
-                st.sidebar.error('Usuário inexistente.')
-                login = False
+        if nomeUsuario != '':
+            for contadorUsuario in range(len(listaUsuarios)):
+                if nomeUsuario == np.array(listaUsuarios)[:,0][contadorUsuario]:
+                    login = True
+                    break
+                elif contadorUsuario == len(listaUsuarios)-1:
+                    st.sidebar.error('Usuário inexistente.')
+                    login = False
 
         if st.sidebar.checkbox('Login') and login:
             # pegar o usuario
