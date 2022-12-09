@@ -23,7 +23,6 @@ from time import strftime
 import time
 import pytz
 import numpy as np # biblioteca Python usada para trabalhar com arrays
-import pandas as pd
 
 # pegando as funções externas
 #from funcoes import *
@@ -2176,6 +2175,68 @@ def placarJogos(nomeUsuario):
                     pontuacaoJogo = 0
                     listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][124+3*nomeJogo],listaUsuarios[contadorUsuario][125+3*nomeJogo],usuario[124+3*nomeJogo],usuario[125+3*nomeJogo])
                     listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][126+3*nomeJogo],usuario[126+3*nomeJogo])
+                    st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
+                    np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
+
+    #=============================
+
+    st.subheader('Quartas de final')
+    #-----------------------------
+    opcoesQuartas1 = ['Brasil','Croácia']
+    opcoesQuartas2 = ['Holanda','Argentina']
+    opcoesQuartas3 = ['Inglaterra','França']
+    opcoesQuartas4 = ['Marrocos','Portugal']
+    opcoesQuartas  = [opcoesQuartas1,
+                      opcoesQuartas2,
+                      opcoesQuartas3,
+                      opcoesQuartas4]
+    #-----------------------------
+    horarioQuartas1 = horarioJogo(2022,12,9,12,0)
+    horarioQuartas2 = horarioJogo(2022,12,9,16,0)
+    horarioQuartas3 = horarioJogo(2022,12,10,16,0)
+    horarioQuartas4 = horarioJogo(2022,12,10,12,0)
+    horarioQuartas  = [horarioQuartas1,
+                       horarioQuartas2,
+                       horarioQuartas3,
+                       horarioQuartas4]
+    #-----------------------------
+    dataQuartas1 = datetime(2022,12,9,12,0)
+    dataQuartas2 = datetime(2022,12,9,16,0)
+    dataQuartas3 = datetime(2022,12,10,16,0)
+    dataQuartas4 = datetime(2022,12,10,12,0)
+    dataQuartas  = [dataQuartas1,
+                    dataQuartas2,
+                    dataQuartas3,
+                    dataQuartas4]
+    #-----------------------------
+    for nomeJogo in range(4):
+        st.subheader(f'Jogo {nomeJogo+1} - {opcoesQuartas[nomeJogo][0]} x {opcoesQuartas[nomeJogo][1]} - {dataQuartas[nomeJogo]}')
+        with st.form(key = 'incluirApostaFaseEliminatoriasQuartasJogo'+str(nomeJogo+1)):
+            placarQuartas = st.selectbox('Qual será a seleção classificada?', options = opcoesQuartas[nomeJogo], index = 0)
+            placarQuartasSelecao1 = st.number_input(label = opcoesQuartas[nomeJogo][0], min_value = 0, max_value = 10, step = 1, format = '%d')
+            placarQuartasSelecao2 = st.number_input(label = opcoesQuartas[nomeJogo][1], min_value = 0, max_value = 10, step = 1, format = '%d')
+            botaoPlacarQuartas = st.form_submit_button(label = 'Placar')
+        if botaoPlacarQuartas and not horarioQuartas[nomeJogo]:
+            if placarQuartas == opcoesQuartas[nomeJogo][0] and placarQuartasSelecao1 < placarQuartasSelecao2 or placarQuartas == opcoesQuartas[nomeJogo][1] and placarQuartasSelecao2 < placarQuartasSelecao1:
+                st.subheader('placar INVÁLIDO!')
+                st.write(f'Tente realizar as apostas novamente.')
+            else:
+                usuario[148+3*nomeJogo], usuario[149+3*nomeJogo] = placarQuartasSelecao1, placarQuartasSelecao2
+                usuario[150+3*nomeJogo] = listaSelecoes().index(placarQuartas)
+                np.save(str(nomeUsuario),usuario)
+        elif botaoPlacarQuartas and horarioQuartas[nomeJogo]:
+            st.subheader('O jogo ainda não começou!')
+            st.write(f'Você NÃO pode postar o placar.')
+        if usuario[148+3*nomeJogo] != '' and usuario[150+3*nomeJogo] != '':
+            st.subheader('Fim de Jogo!')
+            st.subheader('Placar registrado.')
+            st.write(f'{opcoesQuartas[nomeJogo][0]} {usuario[148+3*nomeJogo]} X {usuario[149+3*nomeJogo]} {opcoesQuartas[nomeJogo][1]}')
+            st.write(f'Seleção classificada: {listaSelecoes()[int(usuario[150+3*nomeJogo])]}')
+            if not horarioQuartas[nomeJogo]:
+                for contadorUsuario in range(1, len(listaUsuarios), 1):
+                    pontuacaoJogo = 0
+                    listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFaseEliminatoria(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][148+3*nomeJogo],listaUsuarios[contadorUsuario][149+3*nomeJogo],usuario[148+3*nomeJogo],usuario[149+3*nomeJogo])
+                    listaUsuarios[contadorUsuario], pontuacao2 = resultadoApostadorFaseEliminatoriaSelecao(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][150+3*nomeJogo],usuario[150+3*nomeJogo])
                     st.subheader(f'A pontuação de {listaUsuarios[contadorUsuario][0]} foi: {pontuacao1+pontuacao2} ponto(s)')
                     np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
