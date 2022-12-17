@@ -3042,7 +3042,7 @@ def lerUsuarios():
     Thiti  = np.load('Thiti.npy')
     Marcos = np.load('Marcos.npy')
     Rafa   = np.load('Rafa.npy')
-    #Taio   = np.load('Taio.npy')
+    Taio   = np.load('Taio.npy')
     #usuario1 = np.load('usuario1.npy')
     #usuario2 = np.load('usuario2.npy')
     #usuario3 = np.load('usuario3.npy')
