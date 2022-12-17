@@ -1687,7 +1687,7 @@ def classificacaoBolaoGrupos():
         else:
             pontuacaoFinal += 0
 
-        if horario:
+        if not horario:
             pontuacaoFinalUsuarios.append(pontuacaoFinal)
         else:
             pontuacaoFinalUsuarios.append('-')        
@@ -1705,7 +1705,7 @@ def classificacaoBolaoGrupos():
         else:
             pontuacaoTerceira += 0
 
-        if horario:
+        if not horario:
             pontuacaoTerceiraUsuarios.append(pontuacaoTerceira)
         else:
             pontuacaoTerceiraUsuarios.append('-')
@@ -2266,7 +2266,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
     #-----------------------------
     opcoesTerceiro = ['Croácia','Marrocos']
     #-----------------------------
-    horarioTerceiro = [horarioJogo(2022,12,17,15,10)]
+    horarioTerceiro = [horarioJogo(2022,12,17,12,0)]
     #-----------------------------
     dataTerceiro = datetime(2022,12,17,12,0)
     #-----------------------------
