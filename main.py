@@ -2317,7 +2317,7 @@ def apostasTerceiroApostador(contadorUsuario):
     #-----------------------------
 
     st.write(f'Terceira posição - {np.array(listaUsuarios)[contadorUsuario][0]}')
-    if not horarioTerceiro:
+    if horarioTerceiro:
         if np.array(listaUsuarios)[contadorUsuario][166] != '':
             st.write(f'{opcoesTerceiro[0]} {np.array(listaUsuarios)[contadorUsuario][166]}x{np.array(listaUsuarios)[contadorUsuario][167]} {opcoesTerceiro[1]}')
             st.write(f'Terceiro: {listaSelecoes()[int(listaUsuarios[contadorUsuario][168])]}')
