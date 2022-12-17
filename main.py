@@ -2266,7 +2266,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
     #-----------------------------
     opcoesTerceiro = ['Croácia','Marrocos']
     #-----------------------------
-    horarioTerceiro = [horarioJogo(2022,12,17,12,0)]
+    horarioTerceiro = [horarioJogo(2022,12,17,14,30)]
     #-----------------------------
     dataTerceiro = datetime(2022,12,17,12,0)
     #-----------------------------
@@ -2939,7 +2939,7 @@ def placarJogos(nomeUsuario):
         st.subheader('Placar registrado.')
         st.write(f'{opcoesFinal[0]} {usuario[169]} X {usuario[170]} {opcoesFinal[1]}')
         st.write(f'Campeã: {listaSelecoes()[int(usuario[171])]}')    
-        if not horarioFinal:
+        if not horarioFinal[0]:
             for contadorUsuario in range(1, len(listaUsuarios), 1):
                 pontuacaoJogo = 0
                 listaUsuarios[contadorUsuario], pontuacao1 = resultadoApostadorFinal(listaUsuarios[contadorUsuario],pontuacaoJogo,listaUsuarios[contadorUsuario][169],listaUsuarios[contadorUsuario][170],usuario[169],usuario[170])
