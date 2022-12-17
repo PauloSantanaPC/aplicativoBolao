@@ -3020,7 +3020,7 @@ def placarJogos(nomeUsuario):
                 pontuacaoTerceira += 10
         else:
             pontuacaoTerceira += 0
-        #listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
+        listaUsuarios[contadorUsuario][2] = int(listaUsuarios[contadorUsuario][2]) + pontuacaoTerceira
         #-----------------------------
         np.save(str(listaUsuarios[contadorUsuario][0]),listaUsuarios[contadorUsuario])
 
