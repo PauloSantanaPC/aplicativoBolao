@@ -2286,7 +2286,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
             usuario[166], usuario[167] = apostaTerceiroSelecao1, apostaTerceiroSelecao2
             usuario[168] = listaSelecoes().index(apostaTerceiro)
             np.save(str(nomeUsuario),usuario)
-    elif botaoApostaTerceiro and not horarioTerceiro:
+    elif botaoApostaTerceiro and not horarioTerceiro[0]:
         st.subheader('O jogo já começou!')
         st.write(f'Você NÃO pode realizar as apostas.')
     if usuario[166] != '' and usuario[167] != '':
@@ -2357,7 +2357,7 @@ def apostasFinal(usuario,nomeUsuario,usuarioMestre):
             usuario[169], usuario[170] = apostaFinalSelecao1, apostaFinalSelecao2
             usuario[171] = listaSelecoes().index(apostaFinal)
             np.save(str(nomeUsuario),usuario)
-    elif botaoApostaFinal and not horarioFinal:
+    elif botaoApostaFinal and not horarioFinal[0]:
         st.subheader('O jogo já começou!')
         st.write(f'Você NÃO pode realizar as apostas.')
     if usuario[169] != '' and usuario[170] != '':
