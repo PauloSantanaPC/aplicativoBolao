@@ -2266,7 +2266,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
     #-----------------------------
     opcoesTerceiro = ['Croácia','Marrocos']
     #-----------------------------
-    horarioTerceiro = [horarioJogo(2022,12,17,13,0)]
+    horarioTerceiro = [horarioJogo(2022,12,17,12,0)]
     #-----------------------------
     dataTerceiro = datetime(2022,12,17,12,0)
     #-----------------------------
@@ -2878,7 +2878,7 @@ def placarJogos(nomeUsuario):
         placarTerceiroSelecao1 = st.number_input(label = opcoesTerceiro[0], min_value = 0, max_value = 10, step = 1, format = '%d')
         placarTerceiroSelecao2 = st.number_input(label = opcoesTerceiro[1], min_value = 0, max_value = 10, step = 1, format = '%d')
         botaoPlacarTerceiro = st.form_submit_button(label = 'Placar')
-    if botaoPlacarTerceiro and not horarioTerceiro:
+    if botaoPlacarTerceiro and not horarioTerceiro[0]:
         if placarTerceiro == opcoesTerceiro[0] and placarTerceiroSelecao1 < placarTerceiroSelecao2 or placarTerceiro == opcoesTerceiro[1] and placarTerceiroSelecao2 < placarTerceiroSelecao1:
             st.subheader('placar INVÁLIDO!')
             st.write(f'Tente realizar as apostas novamente.')
@@ -2886,7 +2886,7 @@ def placarJogos(nomeUsuario):
             usuario[166], usuario[167] = placarTerceiroSelecao1, placarTerceiroSelecao2
             usuario[168] = listaSelecoes().index(placarTerceiro)
             np.save(str(nomeUsuario),usuario)
-    elif botaoPlacarTerceiro and horarioTerceiro:
+    elif botaoPlacarTerceiro and horarioTerceiro[0]:
         st.subheader('O jogo ainda não começou!')
         st.write(f'Você NÃO pode postar o placar.')
     if usuario[166] != '' and usuario[168] != '':
@@ -2923,7 +2923,7 @@ def placarJogos(nomeUsuario):
         placarFinalSelecao1 = st.number_input(label = opcoesFinal[0], min_value = 0, max_value = 10, step = 1, format = '%d')
         placarFinalSelecao2 = st.number_input(label = opcoesFinal[1], min_value = 0, max_value = 10, step = 1, format = '%d')
         botaoPlacarFinal = st.form_submit_button(label = 'Placar')
-    if botaoPlacarFinal and not horarioFinal:
+    if botaoPlacarFinal and not horarioFinal[0]:
         if placarFinal == opcoesFinal[0] and placarFinalSelecao1 < placarFinalSelecao2 or placarFinal == opcoesFinal[1] and placarFinalSelecao2 < placarFinalSelecao1:
             st.subheader('placar INVÁLIDO!')
             st.write(f'Tente realizar as apostas novamente.')
@@ -2931,7 +2931,7 @@ def placarJogos(nomeUsuario):
             usuario[169], usuario[170] = placarFinalSelecao1, placarFinalSelecao2
             usuario[171] = listaSelecoes().index(placarFinal)
             np.save(str(nomeUsuario),usuario)
-    elif botaoPlacarFinal and horarioFinal:
+    elif botaoPlacarFinal and horarioFinal[0]:
         st.subheader('O jogo ainda não começou!')
         st.write(f'Você NÃO pode postar o placar.')
     if usuario[169] != '' and usuario[171] != '':
