@@ -2319,7 +2319,7 @@ def apostasTerceiroApostador(contadorUsuario):
     st.write(f'Terceira posição - {np.array(listaUsuarios)[contadorUsuario][0]}')
     if not horarioTerceiro:
         if np.array(listaUsuarios)[contadorUsuario][166] != '':
-            st.write(f'{opcoesTerceiro[0]} {np.array(listaUsuarios)[contadorUsuario][166]}x{np.array(listaUsuarios)[contadorUsuario][167]} {opcoesSemi[1]}')
+            st.write(f'{opcoesTerceiro[0]} {np.array(listaUsuarios)[contadorUsuario][166]}x{np.array(listaUsuarios)[contadorUsuario][167]} {opcoesTerceiro[1]}')
             st.write(f'Terceiro: {listaSelecoes()[int(listaUsuarios[contadorUsuario][168])]}')
         else:
             st.write(f'Aposta NÃO realizada.')
@@ -2390,7 +2390,7 @@ def apostasFinalApostador(contadorUsuario):
     st.write(f'Final - {np.array(listaUsuarios)[contadorUsuario][0]}')
     if not horarioFinal:
         if np.array(listaUsuarios)[contadorUsuario][169] != '':
-            st.write(f'{opcoesFinal[0]} {np.array(listaUsuarios)[contadorUsuario][169]}x{np.array(listaUsuarios)[contadorUsuario][170]} {opcoesSemi[1]}')
+            st.write(f'{opcoesFinal[0]} {np.array(listaUsuarios)[contadorUsuario][169]}x{np.array(listaUsuarios)[contadorUsuario][170]} {opcoesFinal[1]}')
             st.write(f'CAMPEÃ: {listaSelecoes()[int(listaUsuarios[contadorUsuario][171])]}')
         else:
             st.write(f'Aposta NÃO realizada.')
