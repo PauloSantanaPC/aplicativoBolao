@@ -2278,7 +2278,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
         apostaTerceiroSelecao1 = st.number_input(label = opcoesTerceiro[0], min_value = 0, max_value = 10, step = 1, format = '%d')
         apostaTerceiroSelecao2 = st.number_input(label = opcoesTerceiro[1], min_value = 0, max_value = 10, step = 1, format = '%d')
         botaoApostaTerceiro = st.form_submit_button(label = 'Apostar')
-    if botaoApostaTerceiro and horarioTerceiro:
+    if botaoApostaTerceiro and horarioTerceiro[0]:
         if apostaTerceiro == opcoesTerceiro[0] and apostaTerceiroSelecao1 < apostaTerceiroSelecao2 or apostaTerceiro == opcoesTerceiro[1] and apostaTerceiroSelecao2 < apostaTerceiroSelecao1:
             st.subheader('Apostas INVÁLIDAS!')
             st.write(f'Tente realizar as apostas novamente.')
@@ -2349,7 +2349,7 @@ def apostasFinal(usuario,nomeUsuario,usuarioMestre):
         apostaFinalSelecao1 = st.number_input(label = opcoesFinal[0], min_value = 0, max_value = 10, step = 1, format = '%d')
         apostaFinalSelecao2 = st.number_input(label = opcoesFinal[1], min_value = 0, max_value = 10, step = 1, format = '%d')
         botaoApostaFinal = st.form_submit_button(label = 'Apostar')
-    if botaoApostaFinal and horarioFinal:
+    if botaoApostaFinal and horarioFinal[0]:
         if apostaFinal == opcoesFinal[0] and apostaFinalSelecao1 < apostaFinalSelecao2 or apostaFinal == opcoesFinal[1] and apostaFinalSelecao2 < apostaFinalSelecao1:
             st.subheader('Apostas INVÁLIDAS!')
             st.write(f'Tente realizar as apostas novamente.')
