@@ -1705,7 +1705,7 @@ def classificacaoBolaoGrupos():
         else:
             pontuacaoTerceira += 0
 
-        if not horario:
+        if horario:
             pontuacaoTerceiraUsuarios.append(pontuacaoTerceira)
         else:
             pontuacaoTerceiraUsuarios.append('-')
