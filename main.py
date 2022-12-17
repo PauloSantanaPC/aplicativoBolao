@@ -2266,7 +2266,7 @@ def apostasTerceiro(usuario,nomeUsuario,usuarioMestre):
     #-----------------------------
     opcoesTerceiro = ['Croácia','Marrocos']
     #-----------------------------
-    horarioTerceiro = [horarioJogo(2022,12,17,14,40)]
+    horarioTerceiro = [horarioJogo(2022,12,17,15,0)]
     #-----------------------------
     dataTerceiro = datetime(2022,12,17,12,0)
     #-----------------------------
